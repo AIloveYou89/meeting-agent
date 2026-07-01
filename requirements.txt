@@ -1,0 +1,4 @@
+# Thư viện cần cho bước bóc băng (transcribe.py)
+google-cloud-speech>=2.20.0
+
+# make_bienban.py KHÔNG cần thư viện ngoài — chỉ dùng thư viện chuẩn Python.

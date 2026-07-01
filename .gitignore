@@ -1,0 +1,28 @@
+# ===== BẢO MẬT — TUYỆT ĐỐI KHÔNG commit các thứ sau =====
+
+# Chìa khóa Google Cloud (chứa thông tin nhạy cảm — KHÔNG BAO GIỜ đẩy lên GitHub)
+key.json
+*.json
+!examples/*.json
+
+# File ghi âm (dữ liệu riêng tư của cuộc họp)
+*.mp3
+*.m4a
+*.wav
+*.aac
+*.ogg
+*.mp4
+
+# Transcript & biên bản đã tạo (dữ liệu riêng tư)
+transcripts/
+*.docx
+!examples/**
+
+# ===== Môi trường Python =====
+.venv/
+__pycache__/
+*.pyc
+
+# ===== Hệ điều hành =====
+.DS_Store
+Thumbs.db
