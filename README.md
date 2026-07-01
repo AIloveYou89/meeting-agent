@@ -1,4 +1,17 @@
-# 🎙️ meeting-agent — Biến file ghi âm cuộc họp thành Biên bản Word
+<p align="center">
+  <img src="docs/images/banner.png" alt="meeting-agent — Biến file ghi âm cuộc họp thành Biên bản Word" width="100%">
+</p>
+
+<h1 align="center">🎙️ meeting-agent</h1>
+<p align="center"><b>Biến file ghi âm cuộc họp thành Biên bản Word — tự động</b></p>
+
+<p align="center">
+  <a href="docs/01-tao-google-cloud.md">📖 Hướng dẫn cài đặt (có ảnh từng bước)</a> ·
+  <a href="docs/03-su-dung.md">▶️ Cách dùng</a> ·
+  <a href="#-bảo-mật--riêng-tư">🔒 Bảo mật</a>
+</p>
+
+---
 
 Bạn có một **file ghi âm cuộc họp** (từ điện thoại, Zoom, Google Meet...) và muốn có ngay một
 **biên bản cuộc họp** gọn gàng: tóm tắt nội dung, các quyết định, **bảng phân công ai làm việc gì**?
