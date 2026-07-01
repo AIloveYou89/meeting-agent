@@ -31,17 +31,29 @@
 > 💳 **Về tiền:** thêm thẻ chỉ để Google **xác minh danh tính**. Bạn nhận **$300 free trong 90 ngày** và Google **KHÔNG tự trừ tiền** khi hết trial (phải tự bấm nâng cấp mới bị tính). Ngoài ra Speech-to-Text còn **60 phút/tháng miễn phí vĩnh viễn**.
 
 ## 1.2. Tạo một "Project" (dự án)
-1. Ở thanh trên cùng, bấm vào ô chọn project (cạnh chữ "Google Cloud").
-2. Bấm **New Project** (Dự án mới).
-3. Đặt tên, ví dụ `bien-ban-hop` → bấm **Create**.
+Sau khi đăng nhập, bạn thấy màn hình chính (Dashboard):
+
+![Màn hình chính Google Cloud](images/console-home.png)
+
+1. Ở thanh trên cùng, bấm **Select a project** (cạnh chữ "Google Cloud").
+2. Trong cửa sổ hiện ra, bấm **New Project** (góc trên bên phải).
+
+![Chọn project → New project](images/project-select.png)
+
+3. Đặt tên, ví dụ `bien-ban-hop`, để nguyên các mục còn lại → bấm **Create**.
+
+![Màn hình tạo project mới](images/01-new-project.png)
+
 4. Chờ vài giây, rồi bấm lại ô chọn project và **chọn đúng project vừa tạo**.
 
-![Tạo project mới](images/01-new-project.png)
-
 ## 1.3. Bật dịch vụ Speech-to-Text
-1. Vào link: **https://console.cloud.google.com/apis/library/speech.googleapis.com**
-2. Kiểm tra góc trên đang đúng project của bạn.
-3. Bấm nút **Enable** (Bật). Chờ đến khi hiện "API enabled".
+**Cách 1 (nhanh):** vào thẳng link **https://console.cloud.google.com/apis/library/speech.googleapis.com** → bấm **Enable**.
+
+**Cách 2 (theo menu):** trong project, mở menu **☰ → APIs & Services → Library**:
+
+![Vào APIs & Services → Library](images/02-nav-library.png)
+
+→ gõ tìm **"Speech-to-Text"** → mở kết quả → bấm nút **Enable** (Bật). Chờ đến khi hiện "API enabled".
 
 ![Bật API Speech-to-Text](images/02-enable-api.png)
 

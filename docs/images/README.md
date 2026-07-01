@@ -10,11 +10,18 @@ Thư mục này chứa ảnh minh họa cho `docs/01-tao-google-cloud.md`.
 | `signup-3-payment.png` | Bước 2/2 — Payment Information (đã che tên) |
 | `signup-4-add-card.png` | Thêm thẻ tín dụng (đã che tên + ID) |
 
+## ✅ Đã có (phần tạo project) — đã che PII
+| File | Nội dung |
+|------|----------|
+| `console-home.png` | Màn hình chính sau đăng nhập (đã che avatar) |
+| `project-select.png` | Cửa sổ Select a project → New project (đã che tên/ID project cũ) |
+| `01-new-project.png` | Màn New Project (đã che Project ID + Billing) |
+| `02-nav-library.png` | Vào APIs & Services → Library (đã che project number/ID) |
+
 ## ⬜ Còn thiếu (anh chụp thêm khi rảnh)
 | Tên file (đặt đúng) | Chụp màn hình nào | Mục |
 |---------------------|-------------------|-----|
-| `01-new-project.png` | Màn **New Project** — ô điền tên project | 1.2 |
-| `02-enable-api.png` | Trang **Speech-to-Text API** có nút **Enable** | 1.3 |
+| `02-enable-api.png` | Trang **Speech-to-Text API** có nút **Enable** (sau khi tìm trong Library) | 1.3 |
 | `04-create-service-account.png` | Màn **Create Service Account** — điền tên + Role `Cloud Speech Client` | 1.5 |
 | `05-tao-key-json.png` | Tab **Keys → Add Key → Create new key → JSON** | 1.5 |
 
