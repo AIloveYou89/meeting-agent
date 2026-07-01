@@ -20,16 +20,22 @@
 3. Đặt tên, ví dụ `bien-ban-hop` → bấm **Create**.
 4. Chờ vài giây, rồi bấm lại ô chọn project và **chọn đúng project vừa tạo**.
 
+![Tạo project mới](images/01-new-project.png)
+
 ## 1.3. Bật dịch vụ Speech-to-Text
 1. Vào link: **https://console.cloud.google.com/apis/library/speech.googleapis.com**
 2. Kiểm tra góc trên đang đúng project của bạn.
 3. Bấm nút **Enable** (Bật). Chờ đến khi hiện "API enabled".
+
+![Bật API Speech-to-Text](images/02-enable-api.png)
 
 ## 1.4. Bật thanh toán (Billing) — bắt buộc, kể cả khi dùng bản miễn phí
 > Google yêu cầu có thẻ để "xác minh", nhưng vẫn cho 60 phút free/tháng. Không dùng quá thì không mất tiền.
 1. Vào **https://console.cloud.google.com/billing**
 2. Bấm **Link a billing account** hoặc **Create account** → làm theo hướng dẫn, thêm thẻ Visa/Mastercard.
 3. Gắn billing account đó vào project vừa tạo.
+
+![Bật thanh toán / Billing](images/03-billing.png)
 
 ## 1.5. Tạo "Service Account" và tải file chìa khóa (`key.json`)
 Đây là bước tạo ra file chìa khóa cho phần mềm dùng.
@@ -41,8 +47,11 @@
      Nếu không thấy, chọn tạm `Project → Editor` cũng được.
    - Bấm **Continue** → **Done**.
 3. Trong danh sách, bấm vào service account `meeting-agent` vừa tạo.
+   ![Tạo Service Account](images/04-create-service-account.png)
 4. Qua tab **Keys** → **Add Key** → **Create new key** → chọn **JSON** → **Create**.
 5. Trình duyệt sẽ **tải về 1 file `.json`**. Đây chính là **chìa khóa** của bạn.
+
+   ![Tạo và tải key JSON](images/05-tao-key-json.png)
 
 ## 1.6. Đặt file chìa khóa vào đúng chỗ
 1. Đổi tên file vừa tải thành **`key.json`**.
