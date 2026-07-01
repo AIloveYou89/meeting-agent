@@ -52,6 +52,18 @@
 
 ---
 
+---
+
+## (Tùy chọn nâng cao) Không cần key.json nếu bạn đã dùng gcloud
+Nếu bạn là người quen kỹ thuật và đã cài **gcloud CLI**, có thể bỏ qua việc tạo `key.json`:
+```
+gcloud auth application-default login
+gcloud config set project <TÊN-PROJECT-CỦA-BẠN>
+```
+Tool sẽ tự nhận đăng nhập này. Người dùng phổ thông cứ dùng `key.json` như trên cho đơn giản.
+
+---
+
 ## ⚠️ Lưu ý bảo mật (rất quan trọng)
 - File `key.json` giống như **chìa khóa nhà** — ai có nó cũng dùng được tài khoản Google Cloud của bạn.
 - **KHÔNG** gửi file này cho ai, **KHÔNG** đưa lên GitHub / Facebook / email.

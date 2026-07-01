@@ -37,25 +37,6 @@ def die(msg):
     sys.exit(1)
 
 
-def find_credentials():
-    """Tìm file key Google. Ưu tiên biến môi trường, sau đó key.json trong repo."""
-    env = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
-    if env:
-        env = os.path.expanduser(env)
-        if os.path.isfile(env):
-            return env
-        die("Biến GOOGLE_APPLICATION_CREDENTIALS đang trỏ tới file không tồn tại:\n"
-            f"   {env}\n"
-            "   → Sửa lại đường dẫn, hoặc bỏ biến này và đặt key.json trong thư mục meeting-agent/.")
-    local = os.path.join(HERE, "key.json")
-    if os.path.isfile(local):
-        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = local
-        return local
-    die("Chưa thấy file chìa khóa Google (key.json).\n"
-        "   → Làm theo docs/01-tao-google-cloud.md để tải key.json,\n"
-        "     rồi đặt nó ngay trong thư mục meeting-agent/.")
-
-
 def project_id_from_key(key_path):
     try:
         with open(key_path, "r", encoding="utf-8") as f:
@@ -68,6 +49,62 @@ def project_id_from_key(key_path):
     if not pid:
         die("File key.json không có 'project_id'. Anh tải lại đúng file key service account.")
     return pid
+
+
+def _gcloud_project():
+    """Lấy project đang chọn của gcloud (nếu có cài gcloud CLI)."""
+    if shutil.which("gcloud") is None:
+        return None
+    try:
+        out = subprocess.run(["gcloud", "config", "get-value", "project"],
+                             capture_output=True, text=True, timeout=15)
+        pid = out.stdout.strip()
+        return pid if pid and pid != "(unset)" else None
+    except Exception:
+        return None
+
+
+def resolve_credentials():
+    """Xác định project_id và thiết lập credentials cho Google client.
+
+    Ưu tiên theo thứ tự:
+    1) File chìa khóa service account (key.json) — CÁCH CHÍNH, xem docs/01.
+    2) Application Default Credentials (nếu bạn đã chạy 'gcloud auth
+       application-default login') — cách nâng cao cho người quen kỹ thuật.
+    """
+    # (1) Service account key
+    env = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
+    key_path = None
+    if env:
+        env = os.path.expanduser(env)
+        if os.path.isfile(env):
+            key_path = env
+        else:
+            die("Biến GOOGLE_APPLICATION_CREDENTIALS đang trỏ tới file không tồn tại:\n"
+                f"   {env}\n"
+                "   → Sửa lại đường dẫn, hoặc bỏ biến này và đặt key.json trong thư mục meeting-agent/.")
+    if key_path is None:
+        local = os.path.join(HERE, "key.json")
+        if os.path.isfile(local):
+            os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = local
+            key_path = local
+    if key_path:
+        return project_id_from_key(key_path)
+
+    # (2) Application Default Credentials (nâng cao)
+    adc = os.path.expanduser("~/.config/gcloud/application_default_credentials.json")
+    if os.path.isfile(adc):
+        pid = os.environ.get("GOOGLE_CLOUD_PROJECT") or _gcloud_project()
+        if pid:
+            print("ℹ️   Dùng đăng nhập gcloud sẵn có (ADC).")
+            return pid
+        die("Đã có đăng nhập gcloud nhưng chưa chọn project.\n"
+            "   → Chạy: gcloud config set project <TÊN-PROJECT>\n"
+            "     hoặc đặt biến GOOGLE_CLOUD_PROJECT.")
+
+    die("Chưa thấy file chìa khóa Google (key.json).\n"
+        "   → Làm theo docs/01-tao-google-cloud.md để tải key.json,\n"
+        "     rồi đặt nó ngay trong thư mục meeting-agent/.")
 
 
 def check_ffmpeg():
@@ -93,8 +130,7 @@ def main():
         die(f"Không tìm thấy file: {audio_in}")
 
     check_ffmpeg()
-    key_path = find_credentials()
-    project_id = project_id_from_key(key_path)
+    project_id = resolve_credentials()
 
     # Import sau khi đã báo lỗi ffmpeg/key (thư viện có thể nặng)
     try:
