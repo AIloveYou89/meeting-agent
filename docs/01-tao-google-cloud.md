@@ -65,17 +65,23 @@ Sau khi đăng nhập, bạn thấy màn hình chính (Dashboard):
 Đây là bước tạo ra file chìa khóa cho phần mềm dùng.
 
 1. Vào **https://console.cloud.google.com/iam-admin/serviceaccounts**
-2. Bấm **Create Service Account**.
-   - **Name:** `meeting-agent` → **Create and Continue**.
-   - **Role (cấp quyền):** chọn `Cloud Speech Client` (gõ "speech" để tìm).
-     Nếu không thấy, chọn tạm `Project → Editor` cũng được.
-   - Bấm **Continue** → **Done**.
-3. Trong danh sách, bấm vào service account `meeting-agent` vừa tạo.
-   ![Tạo Service Account](images/04-create-service-account.png)
-4. Qua tab **Keys** → **Add Key** → **Create new key** → chọn **JSON** → **Create**.
-5. Trình duyệt sẽ **tải về 1 file `.json`**. Đây chính là **chìa khóa** của bạn.
+   (hoặc `APIs & Services → Credentials → Create credentials → Service account`).
 
-   ![Tạo và tải key JSON](images/05-tao-key-json.png)
+![Create credentials → Service account](images/04-create-credential.png)
+
+2. **Bước 1 — Service account details:** đặt tên, ví dụ `meeting-agent` → **Create and Continue**.
+
+![Điền tên Service Account](images/04-create-service-account.png)
+
+3. **Bước 2 — Permissions (cấp quyền):** ở ô **Select a role**, gõ tìm **"speech"** → chọn **Cloud Speech Administrator** (hoặc Cloud Speech Client) → **Continue**.
+
+![Chọn role Cloud Speech Administrator](images/05-permissions.png)
+
+4. **Bước 3 — Principals with access:** để trống (không cần) → bấm **Done**.
+5. Trong danh sách, bấm vào service account vừa tạo → tab **Keys → Add Key → Create new key → JSON → Create**.
+6. Trình duyệt **tải về 1 file `.json`** — đây chính là **chìa khóa** của bạn.
+
+![Tạo và tải key JSON](images/05-tao-key-json.png)
 
 ## 1.6. Đặt file chìa khóa vào đúng chỗ
 1. Đổi tên file vừa tải thành **`key.json`**.
