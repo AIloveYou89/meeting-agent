@@ -78,10 +78,15 @@ Sau khi đăng nhập, bạn thấy màn hình chính (Dashboard):
 ![Chọn role Cloud Speech Administrator](images/05-permissions.png)
 
 4. **Bước 3 — Principals with access:** để trống (không cần) → bấm **Done**.
-5. Trong danh sách, bấm vào service account vừa tạo → tab **Keys → Add Key → Create new key → JSON → Create**.
-6. Trình duyệt **tải về 1 file `.json`** — đây chính là **chìa khóa** của bạn.
+5. Trong danh sách **Service Accounts**, bấm vào service account vừa tạo (cột Email).
+
+![Mở service account trong danh sách](images/05a-mo-service-account.png)
+
+6. Qua tab **Keys → Add Key → Create new key → chọn JSON → Create**.
 
 ![Tạo và tải key JSON](images/05-tao-key-json.png)
+
+7. Trình duyệt **tải về 1 file `.json`** — đây chính là **chìa khóa** của bạn.
 
 ## 1.6. Đặt file chìa khóa vào đúng chỗ
 1. Đổi tên file vừa tải thành **`key.json`**.

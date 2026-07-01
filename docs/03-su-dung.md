@@ -36,6 +36,10 @@ Bạn dùng **bất kỳ AI nào đang có sẵn** (ChatGPT, Claude, Gemini, Cop
 
 ---
 
+> ⚡ **Nếu bạn dùng trợ lý AI chạy được lệnh (Claude Code, Codex...):** bỏ qua copy-paste.
+> Chỉ cần nói *"transcribe file ghi âm này rồi viết biên bản"* — trợ lý sẽ tự chạy `transcribe.py`,
+> tự viết biên bản, rồi tự chạy `make_bienban.py` ra file Word.
+
 ## ③ Xuất ra file Word
 
 ```

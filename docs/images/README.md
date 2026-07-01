@@ -22,10 +22,11 @@ Thư mục này chứa ảnh minh họa cho `docs/01-tao-google-cloud.md`.
 | `04-create-service-account.png` | Điền tên Service Account |
 | `05-permissions.png` | Chọn role Cloud Speech Administrator |
 
-## ⬜ Còn thiếu ĐÚNG 1 ẢNH
-| Tên file (đặt đúng) | Chụp màn hình nào | Mục |
-|---------------------|-------------------|-----|
-| `05-tao-key-json.png` | Trong service account → tab **Keys → Add Key → Create new key → JSON** | 1.5 |
+| `05a-mo-service-account.png` | Mở service account trong danh sách Credentials |
+| `05-tao-key-json.png` | Keys → Add Key → Create new key → JSON |
+
+## 🎉 ĐỦ ẢNH — hướng dẫn đã hoàn chỉnh
+Không còn thiếu ảnh nào. Bộ hướng dẫn tạo Google Cloud đã có ảnh minh họa đầy đủ từ A–Z.
 
 ## ⚠️ Trước khi chụp — CHE thông tin sau (repo này công khai!)
 - **Email / avatar** góc trên phải.
