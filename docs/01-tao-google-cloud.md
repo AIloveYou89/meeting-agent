@@ -10,9 +10,25 @@
 
 ---
 
-## 1.1. Đăng nhập Google Cloud Console
+## 1.1. Đăng nhập & đăng ký nhận $300 miễn phí
 1. Vào **https://console.cloud.google.com** bằng tài khoản Gmail của bạn.
-2. Lần đầu vào, Google hỏi đồng ý điều khoản → tick đồng ý → **Agree and Continue**.
+2. Lần đầu, bấm **Get started for free** (Bắt đầu miễn phí) để nhận **$300 tín dụng, dùng trong 90 ngày**.
+
+![Google Cloud Console — Get started for free](images/signup-1-console.png)
+
+3. **Bước 1/2 — Account Information:** chọn Quốc gia (Vietnam), đồng ý điều khoản → **Agree & continue**.
+
+![Bước 1/2 — thông tin tài khoản](images/signup-2-account.png)
+
+4. **Bước 2/2 — Payment Information:** điền thông tin liên hệ (chọn Individual/cá nhân cho đơn giản).
+
+![Bước 2/2 — thông tin thanh toán](images/signup-3-payment.png)
+
+5. **Thêm thẻ để xác minh:** bấm **Add payment method → Add credit or debit card**, nhập **thẻ Visa/Mastercard quốc tế** (KHÔNG dùng thẻ ATM nội địa).
+
+![Thêm thẻ tín dụng](images/signup-4-add-card.png)
+
+> 💳 **Về tiền:** thêm thẻ chỉ để Google **xác minh danh tính**. Bạn nhận **$300 free trong 90 ngày** và Google **KHÔNG tự trừ tiền** khi hết trial (phải tự bấm nâng cấp mới bị tính). Ngoài ra Speech-to-Text còn **60 phút/tháng miễn phí vĩnh viễn**.
 
 ## 1.2. Tạo một "Project" (dự án)
 1. Ở thanh trên cùng, bấm vào ô chọn project (cạnh chữ "Google Cloud").
@@ -29,13 +45,9 @@
 
 ![Bật API Speech-to-Text](images/02-enable-api.png)
 
-## 1.4. Bật thanh toán (Billing) — bắt buộc, kể cả khi dùng bản miễn phí
-> Google yêu cầu có thẻ để "xác minh", nhưng vẫn cho 60 phút free/tháng. Không dùng quá thì không mất tiền.
-1. Vào **https://console.cloud.google.com/billing**
-2. Bấm **Link a billing account** hoặc **Create account** → làm theo hướng dẫn, thêm thẻ Visa/Mastercard.
-3. Gắn billing account đó vào project vừa tạo.
-
-![Bật thanh toán / Billing](images/03-billing.png)
+## 1.4. Thanh toán (Billing)
+- Nếu bạn **đã đăng ký free trial ở mục 1.1** (thêm thẻ, nhận $300) → **Billing đã bật sẵn**, bỏ qua mục này.
+- Nếu chưa: vào **https://console.cloud.google.com/billing** → **Link a billing account** / **Create account** → thêm thẻ Visa/Mastercard → gắn vào project.
 
 ## 1.5. Tạo "Service Account" và tải file chìa khóa (`key.json`)
 Đây là bước tạo ra file chìa khóa cho phần mềm dùng.
