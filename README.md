@@ -44,6 +44,7 @@ và **không cần biết lập trình**.
 | **1** | Tạo "chìa khóa" Google Cloud (`key.json`) | 👉 [docs/01-tao-google-cloud.md](docs/01-tao-google-cloud.md) |
 | **2** | Cài Python + ffmpeg trên máy | 👉 [docs/02-cai-dat.md](docs/02-cai-dat.md) |
 | **3** | Bóc băng → nhờ AI → xuất Word | 👉 [docs/03-su-dung.md](docs/03-su-dung.md) |
+| **4** *(tùy chọn)* | Đẩy công việc lên Google Sheet Gantt | 👉 [docs/04-day-task-len-gantt.md](docs/04-day-task-len-gantt.md) |
 
 ### Tóm tắt cách dùng (sau khi đã cài xong)
 ```bash
@@ -69,6 +70,7 @@ python make_bienban.py examples/bienban-mau.md
 meeting-agent/
 ├── transcribe.py         # Bóc băng: file ghi âm → transcript (dùng Google Speech-to-Text)
 ├── make_bienban.py       # Dựng Word: biên bản Markdown → .docx (không cần cài thêm gì)
+├── push_to_gantt.py      # (Tùy chọn) đẩy công việc trong biên bản → Google Sheet Gantt
 ├── prompts/
 │   └── prompt-bien-ban.txt   # Câu lệnh mẫu để nhờ AI viết biên bản
 ├── examples/             # Transcript & biên bản mẫu (dữ liệu giả để thử)
