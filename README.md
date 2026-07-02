@@ -61,11 +61,16 @@ Chọn **1** → **kéo file ghi âm thả vào cửa sổ** → Enter. Không c
 ### Muốn xem thành phẩm ngay (không cần file ghi âm)
 Bấm đúp launcher → chọn **2** → kéo file `examples/bienban-mau.md` vào → ra file Word mẫu.
 
+> 🤖 **Đã có AI agent (Claude Code / Cursor / Codex)?** Mở thẳng thư mục này bằng agent rồi nói
+> *"làm biên bản từ file ghi âm này"* — agent đọc [AGENTS.md](AGENTS.md) và **tự chạy hết**
+> (bóc băng → viết biên bản → xuất Word). Bạn chỉ cần có `key.json` 1 lần (bước 1).
+
 ---
 
 ## Có gì trong thư mục này?
 ```
 meeting-agent/
+├── AGENTS.md / CLAUDE.md     # 🤖 Hướng dẫn cho AI agent (Claude Code/Cursor/Codex) tự chạy hết
 ├── Chay tren Mac.command     # 🍎 Bấm đúp để mở (menu bóc băng / Word / Gantt)
 ├── Chay tren Windows.bat     # 🪟 Bấm đúp để mở (hoặc kéo file ghi âm thả lên đây)
 ├── transcribe.py         # Bóc băng: file ghi âm → transcript (dùng Google Speech-to-Text)
