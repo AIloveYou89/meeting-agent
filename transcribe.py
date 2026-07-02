@@ -107,10 +107,28 @@ def resolve_credentials():
         "     rồi đặt nó ngay trong thư mục meeting-agent/.")
 
 
+def ffmpeg_exe():
+    """Đường dẫn tới ffmpeg (công cụ xử lý audio).
+
+    Ưu tiên bản đã cài sẵn trong máy; nếu không có, dùng bản đi kèm gói
+    'imageio-ffmpeg' (được cài tự động qua requirements.txt). Nhờ vậy
+    người dùng KHÔNG phải tự đi cài ffmpeg bằng brew/winget.
+    """
+    sys_ff = shutil.which("ffmpeg")
+    if sys_ff:
+        return sys_ff
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return None
+
+
 def check_ffmpeg():
-    if shutil.which("ffmpeg") is None:
-        die("Chưa cài ffmpeg (công cụ xử lý audio).\n"
-            "   → Xem docs/02-cai-dat.md (Mac: brew install ffmpeg | Windows: winget install ffmpeg).")
+    if ffmpeg_exe() is None:
+        die("Chưa có ffmpeg (công cụ xử lý audio).\n"
+            "   → Chạy lại cài đặt: bấm đúp 'Chay tren Mac.command' / 'Chay tren Windows.bat',\n"
+            "     hoặc gõ: pip install -r requirements.txt")
 
 
 def fmt(total_sec):
@@ -154,9 +172,10 @@ def main():
     total = 0
     try:
         # Cắt audio thành từng khúc 16k mono để gọi STT
+        ff = ffmpeg_exe()
         try:
             seg = subprocess.run(
-                ["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", audio_in,
+                [ff, "-hide_banner", "-loglevel", "error", "-y", "-i", audio_in,
                  "-f", "segment", "-segment_time", str(CHUNK_SEC),
                  "-ar", "16000", "-ac", "1",
                  os.path.join(tmpdir, "chunk_%04d.wav")],

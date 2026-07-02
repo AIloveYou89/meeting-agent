@@ -15,14 +15,11 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 echo "✔ Python: $(python3 --version)"
 
-# 2) Kiểm tra ffmpeg
-if ! command -v ffmpeg >/dev/null 2>&1; then
-  echo "⚠ Chưa có ffmpeg. Cài bằng:"
-  echo "    macOS:  brew install ffmpeg"
-  echo "    Linux:  sudo apt install ffmpeg"
-  echo "  (Cài xong chạy lại setup.sh)"
+# 2) ffmpeg — KHÔNG cần cài tay: đã đi kèm gói imageio-ffmpeg (cài ở bước dưới)
+if command -v ffmpeg >/dev/null 2>&1; then
+  echo "✔ ffmpeg đã có sẵn trong máy"
 else
-  echo "✔ ffmpeg đã có"
+  echo "ℹ ffmpeg sẽ dùng bản đi kèm (tự cài qua pip) — không cần làm gì thêm"
 fi
 
 # 3) Tạo môi trường ảo + cài thư viện
@@ -32,7 +29,6 @@ python3 -m venv .venv
 ./.venv/bin/pip install --quiet -r requirements.txt
 
 echo ""
-echo "✅ Xong! Các bước tiếp theo:"
-echo "   1) Tạo file key.json theo docs/01-tao-google-cloud.md, đặt vào thư mục này."
-echo "   2) Bóc băng:   ./.venv/bin/python transcribe.py \"file-ghi-am.m4a\""
-echo "   3) Dựng Word:  ./.venv/bin/python make_bienban.py bienban.md"
+echo "✅ Cài đặt xong!"
+echo "   • Tiếp theo: tạo file key.json theo docs/01-tao-google-cloud.md, đặt vào thư mục này."
+echo "   • Để dùng: bấm đúp 'Chay tren Mac.command' và chọn trong menu."

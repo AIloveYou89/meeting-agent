@@ -1,6 +1,9 @@
 # Thư viện cần cho bước bóc băng (transcribe.py)
 google-cloud-speech>=2.20.0
 
+# ffmpeg đi kèm sẵn (xử lý audio) — nhờ gói này, người dùng KHÔNG cần tự cài ffmpeg
+imageio-ffmpeg>=0.4.9
+
 # make_bienban.py KHÔNG cần thư viện ngoài — chỉ dùng thư viện chuẩn Python.
 
 # (Tùy chọn) cho push_to_gantt.py — đẩy công việc lên Google Sheet Gantt

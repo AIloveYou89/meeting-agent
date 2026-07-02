@@ -1,30 +1,30 @@
 # Bước 3 — Tạo biên bản từ file ghi âm
 
-Sau khi đã xong bước 1 (có `key.json`) và bước 2 (đã cài đặt), mỗi lần muốn tạo biên bản chỉ có **3 việc**.
+Sau khi xong bước 1 (có `key.json`) và bước 2 (đã cài đặt), mỗi lần tạo biên bản chỉ có **3 việc**.
 
-> Ghi chú: các lệnh dưới dùng `python`. Nếu bạn chạy `setup.sh`/`setup.bat`, có thể thay bằng
-> - macOS/Linux: `./.venv/bin/python`
-> - Windows: `.venv\Scripts\python`
+> Mở chương trình: **bấm đúp** `Chay tren Mac.command` (Mac) hoặc `Chay tren Windows.bat` (Windows)
+> → hiện menu. Chọn số tương ứng bên dưới.
 
 ---
 
-## ① Bóc băng: file ghi âm → văn bản
+## ① Bóc băng: file ghi âm → văn bản  *(menu → 1)*
 
-Đặt file ghi âm (`.m4a`, `.mp3`, `.wav`...) vào thư mục `meeting-agent`, rồi chạy:
-
-```
-python transcribe.py "ten-file-ghi-am.m4a"
-```
+1. Đặt file ghi âm (`.m4a`, `.mp3`, `.wav`...) ở đâu cũng được.
+2. Trong menu, gõ **1** rồi Enter.
+3. **Kéo file ghi âm thả vào cửa sổ** → Enter.
 
 - Máy sẽ chia nhỏ audio và gửi lên Google để nhận dạng.
 - Họp càng dài chạy càng lâu (1 tiếng họp mất khoảng vài phút).
-- Xong sẽ có file **`transcripts/ten-file-ghi-am.txt`** — bản chữ có mốc thời gian.
+- Xong sẽ có file **`transcripts/ten-file.txt`** — bản chữ có mốc thời gian.
+
+> 🪟 Trên Windows còn nhanh hơn: **kéo thẳng file ghi âm thả lên icon** `Chay tren Windows.bat`
+> là nó bóc băng luôn, khỏi vào menu.
 
 ---
 
 ## ② Nhờ AI viết biên bản
 
-Bạn dùng **bất kỳ AI nào đang có sẵn** (ChatGPT, Claude, Gemini, Copilot... — kể cả bản miễn phí):
+Dùng **bất kỳ AI nào bạn đang có** (ChatGPT, Claude, Gemini, Copilot... — kể cả bản miễn phí):
 
 1. Mở file **`prompts/prompt-bien-ban.txt`**, copy toàn bộ nội dung.
 2. Mở file transcript vừa tạo ở bước ①, copy toàn bộ.
@@ -36,26 +36,28 @@ Bạn dùng **bất kỳ AI nào đang có sẵn** (ChatGPT, Claude, Gemini, Cop
 
 ---
 
-> ⚡ **Nếu bạn dùng trợ lý AI chạy được lệnh (Claude Code, Codex...):** bỏ qua copy-paste.
-> Chỉ cần nói *"transcribe file ghi âm này rồi viết biên bản"* — trợ lý sẽ tự chạy `transcribe.py`,
-> tự viết biên bản, rồi tự chạy `make_bienban.py` ra file Word.
+## ③ Xuất ra file Word  *(menu → 2)*
 
-## ③ Xuất ra file Word
-
-```
-python make_bienban.py bienban.md
-```
-
+Trong menu gõ **2** → Enter (để trống sẽ tự dùng `bienban.md`).
 Xong! Bạn có file **`bienban.docx`** — mở bằng Word để chỉnh sửa, in, ký.
 
 ---
 
+> ⚡ **Nếu bạn dùng trợ lý AI chạy được lệnh (Claude Code, Codex...):** bỏ qua cả copy-paste lẫn menu.
+> Chỉ cần nói *"transcribe file ghi âm này rồi viết biên bản"* — trợ lý tự chạy hết.
+
+---
+
+## Cách khác: gõ lệnh (cho ai quen dùng terminal)
+```
+# Mac:      ./.venv/bin/python transcribe.py "ten-file.m4a"
+#           ./.venv/bin/python make_bienban.py bienban.md
+# Windows:  .venv\Scripts\python transcribe.py "ten-file.m4a"
+#           .venv\Scripts\python make_bienban.py bienban.md
+```
+
 ## Thử nhanh với ví dụ mẫu (không cần file ghi âm)
-Muốn xem thành phẩm ngay, dùng luôn file mẫu có sẵn:
-```
-python make_bienban.py examples/bienban-mau.md
-```
-→ ra `examples/bienban-mau.docx`. Đây là biên bản mẫu từ một cuộc họp giả định.
+Trong menu gõ **2**, rồi kéo file `examples/bienban-mau.md` vào → ra `examples/bienban-mau.docx`.
 
 ---
 

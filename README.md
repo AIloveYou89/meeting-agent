@@ -42,40 +42,40 @@ và **không cần biết lập trình**.
 | Bước | Làm gì | Hướng dẫn |
 |------|--------|-----------|
 | **1** | Tạo "chìa khóa" Google Cloud (`key.json`) | 👉 [docs/01-tao-google-cloud.md](docs/01-tao-google-cloud.md) |
-| **2** | Cài Python + ffmpeg trên máy | 👉 [docs/02-cai-dat.md](docs/02-cai-dat.md) |
+| **2** | Cài Python, rồi **bấm đúp 1 file** (tự cài phần còn lại) | 👉 [docs/02-cai-dat.md](docs/02-cai-dat.md) |
 | **3** | Bóc băng → nhờ AI → xuất Word | 👉 [docs/03-su-dung.md](docs/03-su-dung.md) |
 | **4** *(tùy chọn)* | Đẩy công việc lên Google Sheet Gantt | 👉 [docs/04-day-task-len-gantt.md](docs/04-day-task-len-gantt.md) |
 
-### Tóm tắt cách dùng (sau khi đã cài xong)
-```bash
-# 1) File ghi âm → văn bản
-python transcribe.py "hop-cong-ty.m4a"
+### Cách dùng (sau khi đã cài xong) — chỉ cần **bấm đúp**
+- 🍎 Mac: bấm đúp **`Chay tren Mac.command`**
+- 🪟 Windows: bấm đúp **`Chay tren Windows.bat`** *(hoặc kéo thẳng file ghi âm thả lên icon)*
 
-# 2) Copy transcript + prompts/prompt-bien-ban.txt → dán vào ChatGPT/Claude/Gemini
-#    → lưu kết quả thành bienban.md
-
-# 3) văn bản → file Word
-python make_bienban.py bienban.md
+Rồi chọn trong menu:
 ```
+   1) Bóc băng file ghi âm   →  chữ (transcript)
+   2) Tạo biên bản Word từ file bienban.md
+   3) (nâng cao) Đẩy công việc lên Google Sheet Gantt
+```
+Chọn **1** → **kéo file ghi âm thả vào cửa sổ** → Enter. Không cần gõ lệnh, không cần cài ffmpeg.
 
 ### Muốn xem thành phẩm ngay (không cần file ghi âm)
-```bash
-python make_bienban.py examples/bienban-mau.md
-```
+Bấm đúp launcher → chọn **2** → kéo file `examples/bienban-mau.md` vào → ra file Word mẫu.
 
 ---
 
 ## Có gì trong thư mục này?
 ```
 meeting-agent/
+├── Chay tren Mac.command     # 🍎 Bấm đúp để mở (menu bóc băng / Word / Gantt)
+├── Chay tren Windows.bat     # 🪟 Bấm đúp để mở (hoặc kéo file ghi âm thả lên đây)
 ├── transcribe.py         # Bóc băng: file ghi âm → transcript (dùng Google Speech-to-Text)
 ├── make_bienban.py       # Dựng Word: biên bản Markdown → .docx (không cần cài thêm gì)
 ├── push_to_gantt.py      # (Tùy chọn) đẩy công việc trong biên bản → Google Sheet Gantt
 ├── prompts/
 │   └── prompt-bien-ban.txt   # Câu lệnh mẫu để nhờ AI viết biên bản
 ├── examples/             # Transcript & biên bản mẫu (dữ liệu giả để thử)
-├── docs/                 # 3 file hướng dẫn từng bước
-├── setup.sh / setup.bat  # Cài đặt tự động (Mac/Linux | Windows)
+├── docs/                 # Các file hướng dẫn từng bước (có ảnh)
+├── setup.sh / setup.bat  # Cài đặt tự động (launcher tự gọi — bạn không phải chạy tay)
 └── requirements.txt
 ```
 

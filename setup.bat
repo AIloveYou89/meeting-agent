@@ -17,10 +17,9 @@ echo [OK] Python da co
 
 where ffmpeg >nul 2>nul
 if errorlevel 1 (
-  echo [!] Chua co ffmpeg. Cai bang:  winget install Gyan.FFmpeg
-  echo     Cai xong mo lai cua so nay va chay lai setup.bat
+  echo [i] ffmpeg se dung ban di kem (tu cai qua pip) - khong can lam gi them
 ) else (
-  echo [OK] ffmpeg da co
+  echo [OK] ffmpeg da co san trong may
 )
 
 echo -^> Tao moi truong Python (.venv) va cai thu vien...
@@ -29,8 +28,7 @@ call .venv\Scripts\python -m pip install --quiet --upgrade pip
 call .venv\Scripts\python -m pip install --quiet -r requirements.txt
 
 echo.
-echo [DONE] Xong! Cac buoc tiep theo:
-echo    1) Tao file key.json theo docs\01-tao-google-cloud.md, dat vao thu muc nay.
-echo    2) Boc bang:   .venv\Scripts\python transcribe.py "file-ghi-am.m4a"
-echo    3) Dung Word:  .venv\Scripts\python make_bienban.py bienban.md
+echo [DONE] Cai dat xong!
+echo    - Tiep theo: tao file key.json theo docs\01-tao-google-cloud.md, dat vao thu muc nay.
+echo    - De dung: nhap doi "Chay tren Windows.bat" va chon trong menu.
 pause
